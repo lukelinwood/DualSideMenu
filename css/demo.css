@@ -47,6 +47,7 @@ a {
 	text-decoration: none;
 	color: #fff;
 	outline: none;
+	cursor: pointer;
 }
 
 a:hover {
@@ -94,7 +95,7 @@ a:hover {
 	color: #5c5edc;
 }
 
-.bp-tooltip:after{
+.bp-tooltip:after {
 	position: relative;
 	top: -8px;
 	left: -8px;
@@ -105,21 +106,53 @@ a:hover {
 
 .bp-tooltip:hover:before {
 	content: attr(data-content);
-	font-size: 110%;
-	font-weight: 700;
-	line-height: 1.2;
-	position: absolute;
-	top: 1.5em;
-	right: 0;
-	width: 50vw;
-	padding: 0.8em 1em;
-	text-align: right;
-	text-indent: 0;
-	letter-spacing: 0;
-	text-transform: none;
-	color: #fff;
-	background: #5c5edc;
+    font-size: 110%;
+    font-weight: 700;
+    line-height: 1.2;
+    position: absolute;
+    top: 1.5em;
+    left: 0;
+    width: 40vw;
+    padding: 0.8em 1em;
+    text-align: left;
+    text-indent: 0;
+    letter-spacing: 0;
+    text-transform: none;
+    color: #fff;
+    background: #5c5edc;
 }
+
+.bp-tooltip:hover .bp-tooltip__arrow {
+	position: relative;
+}
+
+.bp-tooltip:hover .bp-tooltip__arrow:before {
+	content: " ";
+	top: 0px;
+    left: -5px;
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border: solid transparent;
+    border-bottom-color: #5c5edc;
+    border-width: 10px;
+    margin-left: -3px;
+}
+
+.bp-header__sub {
+	height: 100px;
+	margin: 0 0 0 auto;
+    padding: 1.5em 2em;
+}
+.bp-login {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #dedede;
+    font-size: 1.35em;
+}
+
 
 /* Blueprint footer */
 .bp-footer {
@@ -238,7 +271,6 @@ a:hover {
 .content {
 	position: relative;
 	min-height: 300px;
-	margin: 0 0 0 300px;
 }
 
 .content--loading {

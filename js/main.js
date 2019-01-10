@@ -73,7 +73,7 @@
 		this._init();
 	}
 
-	MLMenu.prototype.options = {
+	DSMenu.prototype.options = {
 		// show breadcrumbs
 		breadcrumbsCtrl : true,
 		// initial breadcrumb text
@@ -89,7 +89,7 @@
 		onItemClick : function(ev, itemName) { return false; }
 	};
 
-	MLMenu.prototype._init = function() {
+	DSMenu.prototype._init = function() {
 		// iterate the existing menus and create an array of menus, 
 		// more specifically an array of objects where each one holds the info of each menu element and its menu items
 		this.menusArr = [];
@@ -176,7 +176,7 @@
 		this._initEvents();
 	};
 
-	MLMenu.prototype._initEvents = function() {
+	DSMenu.prototype._initEvents = function() {
 		var self = this;
 
 		for(var i = 0, len = this.menusArr.length; i < len; ++i) {
@@ -215,7 +215,7 @@
 		}
 	};
 
-	MLMenu.prototype._openSubMenu = function(subMenuEl, clickPosition, subMenuName) {
+	DSMenu.prototype._openSubMenu = function(subMenuEl, clickPosition, subMenuName) {
 		if( this.isAnimating ) {
 			return false;
 		}
@@ -231,7 +231,7 @@
 		this._menuIn(subMenuEl, clickPosition);
 	};
 
-	MLMenu.prototype._back = function() {
+	DSMenu.prototype._back = function() {
 		if( this.isAnimating ) {
 			return false;
 		}
@@ -249,7 +249,7 @@
 		}
 	};
 
-	MLMenu.prototype._menuOut = function(clickPosition) {
+	DSMenu.prototype._menuOut = function(clickPosition) {
 		// the current menu
 		var self = this,
 			currentMenu = this.menusArr[this.current_menu].menuEl,
@@ -268,7 +268,7 @@
 		}
 	};
 
-	MLMenu.prototype._menuIn = function(nextMenuEl, clickPosition) {
+	DSMenu.prototype._menuIn = function(nextMenuEl, clickPosition) {
 		var self = this,
 			// the current menu
 			currentMenu = this.menusArr[this.current_menu].menuEl,
@@ -340,7 +340,7 @@
 		}
 	};
 
-	MLMenu.prototype._addBreadcrumb = function(idx) {
+	DSMenu.prototype._addBreadcrumb = function(idx) {
 		if( !this.options.breadcrumbsCtrl ) {
 			return false;
 		}
@@ -374,7 +374,7 @@
 		});
 	};
 
-	MLMenu.prototype._crawlCrumbs = function(currentMenu, menuArray) {
+	DSMenu.prototype._crawlCrumbs = function(currentMenu, menuArray) {
 		if (menuArray[currentMenu].backIdx != 0) {
 			this._crawlCrumbs(menuArray[currentMenu].backIdx, menuArray);
 		}
@@ -382,6 +382,6 @@
 		this._addBreadcrumb(currentMenu);
 	}
 
-	window.MLMenu = MLMenu;
+	window.DSMenu = DSMenu;
 
 })(window);

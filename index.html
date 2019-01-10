@@ -29,15 +29,24 @@
 				<h2 class="dummy-heading">Fooganic</h2>
 			</div>
 			<div class="bp-header__main">
-				<span class="bp-header__blueprint">Blueprint <span class="bp-tooltip bp-icon bp-icon--about" data-content="This is a tooltip"></span></span>
+				<span class="bp-header__blueprint">Blueprint
+					<span class="bp-tooltip bp-icon bp-icon--about" data-content="This is a tooltip">
+						<i class="bp-tooltip__arrow"></i>
+					</span>
+				</span>
 				<h1 class="bp-header__title">Dual-Side Menu</h1>
+			</div>
+			<div class="bp-header__sub">
+				<div class="bp-login">
+					<a class="icon icon--ellipsis"></a>
+				</div>
 			</div>
 		</header>
 		<button class="action action--open" aria-label="Open Menu"><span class="icon icon--menu"></span></button>
-		<nav id="dual-menu" class="menu">
+		<!-- Menu 1 -->
+		<nav id="menu1" class="menu menu__left">
 			<button class="action action--close" aria-label="Close Menu"><span class="icon icon--cross"></span></button>
-			<!-- Menu 1 -->
-			<div class="menu__wrap menu_left">
+			<div class="menu__wrap">
 				<ul data-menu="main" class="menu__level" tabindex="-1" role="menu" aria-label="Main Menu">
 					<li class="menu__item" role="menuitem"><a class="menu__link" data-submenu="submenu-1" aria-owns="submenu-1" href="#">Vegetables</a></li>
 					<li class="menu__item" role="menuitem"><a class="menu__link" data-submenu="submenu-2" aria-owns="submenu-2" href="#">Fruits</a></li>
@@ -45,8 +54,11 @@
 					<li class="menu__item" role="menuitem"><a class="menu__link" data-submenu="submenu-4" aria-owns="submenu-4" href="#">Mylk &amp; Drinks</a></li>
 				</ul>
 			</div>
-			<!-- Menu 2 -->
-			<div class="menu__wrap menu__right">
+		</nav>
+		<!-- Menu 2 -->
+		<nav id="menu2" class="menu menu__right">
+			<button class="action action--close" aria-label="Close Menu"><span class="icon icon--cross"></span></button>
+			<div class="menu__wrap">
 				<ul data-menu="profile" class="menu__level" tabindex="-1" role="menu" aria-label="Profile Menu">
 					<li class="menu__item" role="menuitem"><a class="menu__link" data-submenu="submenu-1" aria-owns="submenu-1" href="#">Vegetables</a></li>
 					<li class="menu__item" role="menuitem"><a class="menu__link" data-submenu="submenu-2" aria-owns="submenu-2" href="#">Fruits</a></li>
@@ -75,8 +87,16 @@
 	<script src="js/main.js"></script>
 	<script>
 	(function() {
-		var menuEl = document.getElementById('dual-menu'),
-			mlmenu = new MLMenu(menuEl, {
+		var menuEl_1 = document.getElementById('menu1'),
+			menuEl_2 = document.getElementById('menu2'),
+			menuEl_1 = new DSMenu(menuEl_1, {
+				// breadcrumbsCtrl : true, // show breadcrumbs
+				// initialBreadcrumb : 'all', // initial breadcrumb text
+				backCtrl : false, // show back button
+				// itemsDelayInterval : 60, // delay between each menu item sliding animation
+				onItemClick: loadDummyData // callback: item that doesn´t have a submenu gets clicked - onItemClick([event], [inner HTML of the clicked item])
+			}),
+			menuEl_2 = new DSMenu(menuEl_2, {
 				// breadcrumbsCtrl : true, // show breadcrumbs
 				// initialBreadcrumb : 'all', // initial breadcrumb text
 				backCtrl : false, // show back button
