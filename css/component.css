@@ -39,11 +39,11 @@
 	background: #1c1d22;
 }
 
-.menu__left {
+.menu--left {
 	left: 0;
 }
 
-.menu__right {
+.menu--right {
 	right: 0;
 }
 
@@ -232,7 +232,7 @@
 	font-size: 0.65em;
 	line-height: 1;
 	position: relative;
-	padding: 2.5em 3.75em 1.5em 2.5em;
+	padding: 3em 3.75em 1.5em 2.5em;
 }
 
 .menu__breadcrumbs a {
@@ -311,20 +311,26 @@
 
 .action--open {
 	font-size: 1.5em;
-	top: 1em;
-	left: 1em;
 	display: none;
 	color: #fff;
 	position: fixed;
-	z-index: 1000;
+	/*z-index: 1000;*/
 }
 
 .action--close {
-	font-size: 1.1em;
-	top: 1.25em;
-	right: 1em;
+	font-size: 1.5em;
 	display: none;
 	color: #45464e;
+}
+
+.action--left {
+	top: 1em;
+	left: 1em;
+}
+
+.action--right {
+	top: 1em;
+	right: 1em;
 }
 
 @media screen and (max-width: 40em) {
@@ -332,18 +338,34 @@
 	.action--close {
 		display: block;
 	}
+
 	.menu {
 		z-index: 1000;
 		top: 0;
 		width: 100%;
 		height: 100vh;
+	}
+
+	.menu--left {
 		-webkit-transform: translate3d(-100%, 0, 0);
 		transform: translate3d(-100%, 0, 0);
 		-webkit-transition: -webkit-transform 0.3s;
 		transition: transform 0.3s;
 	}
+
+	.menu--right {
+		-webkit-transform: translate3d(100%, 0, 0);
+		transform: translate3d(100%, 0, 0);
+		-webkit-transition: -webkit-transform 0.3s;
+		transition: transform 0.3s;
+	}
+
 	.menu--open {
 		-webkit-transform: translate3d(0, 0, 0);
 		transform: translate3d(0, 0, 0);
+	}
+
+	.menu--right .menu__breadcrumbs {
+		text-align: right;
 	}
 }

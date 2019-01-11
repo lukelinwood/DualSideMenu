@@ -41,6 +41,7 @@
 		return a;
 	}
 
+	/* Note this function works for single or multi-level menus */
 	function DSMenu(el, options) {
 		this.el = el;
 		this.options = extend( {}, this.options );
@@ -53,7 +54,7 @@
 		// Each level is actually a different menu so 0 is root, 1 is sub-1, 2 sub-2, etc.
 		this.current_menu = 0;
 
-		/* Determine what current menu actually is */
+		// Determine what current menu actually is
 		var current_menu;
 		this.menus.forEach(function(menuEl, pos) {
 			var items = menuEl.querySelectorAll('.menu__item');
@@ -137,7 +138,16 @@
 			});
 		});
 
-		// create breadcrumbs
+		// check the length of the menu array
+		// disable some features for single menu
+		if (self.options.breadcrumbsCtrl && self.menusArr.length <= 1) {
+			// disable breadcrumbs
+			self.options.breadcrumbsCtrl = false;
+			// disable back button control
+			self.options.backCtrl = false;
+		}
+
+		// create breadcrumbs if length of menu array is 2 or greater
 		if( self.options.breadcrumbsCtrl ) {
 			this.breadcrumbsCtrl = document.createElement('nav');
 			this.breadcrumbsCtrl.className = 'menu__breadcrumbs';

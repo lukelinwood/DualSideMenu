@@ -269,7 +269,7 @@ a:hover {
 }
 
 .content {
-	position: relative;
+	/*position: relative;*/
 	min-height: 300px;
 }
 

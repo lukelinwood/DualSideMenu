@@ -42,10 +42,10 @@
 				</div>
 			</div>
 		</header>
-		<button class="action action--open" aria-label="Open Menu"><span class="icon icon--menu"></span></button>
 		<!-- Menu 1 -->
-		<nav id="menu1" class="menu menu__left">
-			<button class="action action--close" aria-label="Close Menu"><span class="icon icon--cross"></span></button>
+		<button id="menu1--open" class="action action--open action--left" aria-label="Open Menu"><span class="icon icon--menu"></span></button>
+		<nav id="menu1" class="menu menu--left">
+			<button id="menu1--close" class="action action--close action--right" aria-label="Close Menu"><span class="icon icon--cross"></span></button>
 			<div class="menu__wrap">
 				<ul data-menu="main" class="menu__level" tabindex="-1" role="menu" aria-label="Main Menu">
 					<li class="menu__item" role="menuitem"><a class="menu__link" data-submenu="submenu-1" aria-owns="submenu-1" href="#">Vegetables</a></li>
@@ -53,17 +53,84 @@
 					<li class="menu__item" role="menuitem"><a class="menu__link" data-submenu="submenu-3" aria-owns="submenu-3" href="#">Grains</a></li>
 					<li class="menu__item" role="menuitem"><a class="menu__link" data-submenu="submenu-4" aria-owns="submenu-4" href="#">Mylk &amp; Drinks</a></li>
 				</ul>
+				<!-- Submenu 1 -->
+				<ul data-menu="submenu-1" id="submenu-1" class="menu__level" tabindex="-1" role="menu" aria-label="Vegetables">
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Stalk Vegetables</a></li>
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Roots &amp; Seeds</a></li>
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Cabbages</a></li>
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Salad Greens</a></li>
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Mushrooms</a></li>
+					<li class="menu__item" role="menuitem"><a class="menu__link" data-submenu="submenu-1-1" aria-owns="submenu-1-1" href="#">Sale %</a></li>
+				</ul>
+				<!-- Submenu 1-1 -->
+				<ul data-menu="submenu-1-1" id="submenu-1-1" class="menu__level" tabindex="-1" role="menu" aria-label="Sale %">
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Fair Trade Roots</a></li>
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Dried Veggies</a></li>
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Our Brand</a></li>
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Homemade</a></li>
+				</ul>
+				<!-- Submenu 2 -->
+				<ul data-menu="submenu-2" id="submenu-2" class="menu__level" tabindex="-1" role="menu" aria-label="Fruits">
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Citrus Fruits</a></li>
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Berries</a></li>
+					<li class="menu__item" role="menuitem"><a class="menu__link" data-submenu="submenu-2-1" aria-owns="submenu-2-1" href="#">Special Selection</a></li>
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Tropical Fruits</a></li>
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Melons</a></li>
+				</ul>
+				<!-- Submenu 2-1 -->
+				<ul data-menu="submenu-2-1" id="submenu-2-1" class="menu__level" tabindex="-1" role="menu" aria-label="Special Selection">
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Exotic Mixes</a></li>
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Wild Pick</a></li>
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Vitamin Boosters</a></li>
+				</ul>
+				<!-- Submenu 3 -->
+				<ul data-menu="submenu-3" id="submenu-3" class="menu__level" tabindex="-1" role="menu" aria-label="Grains">
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Buckwheat</a></li>
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Millet</a></li>
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Quinoa</a></li>
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Wild Rice</a></li>
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Durum Wheat</a></li>
+					<li class="menu__item" role="menuitem"><a class="menu__link" data-submenu="submenu-3-1" aria-owns="submenu-3-1" href="#">Promo Packs</a></li>
+				</ul>
+				<!-- Submenu 3-1 -->
+				<ul data-menu="submenu-3-1" id="submenu-3-1" class="menu__level" tabindex="-1" role="menu" aria-label="Promo Packs">
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Starter Kit</a></li>
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">The Essential 8</a></li>
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Bolivian Secrets</a></li>
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Flour Packs</a></li>
+				</ul>
+				<!-- Submenu 4 -->
+				<ul data-menu="submenu-4" id="submenu-4" class="menu__level" tabindex="-1" role="menu" aria-label="Mylk &amp; Drinks">
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Grain Mylks</a></li>
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Seed Mylks</a></li>
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Nut Mylks</a></li>
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Nutri Drinks</a></li>
+					<li class="menu__item" role="menuitem"><a class="menu__link" data-submenu="submenu-4-1" aria-owns="submenu-4-1" href="#">Selection</a></li>
+				</ul>
+				<!-- Submenu 4-1 -->
+				<ul data-menu="submenu-4-1" id="submenu-4-1" class="menu__level" tabindex="-1" role="menu" aria-label="Selection">
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Nut Mylk Packs</a></li>
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Amino Acid Heaven</a></li>
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Allergy Free</a></li>
+				</ul>
 			</div>
 		</nav>
 		<!-- Menu 2 -->
-		<nav id="menu2" class="menu menu__right">
-			<button class="action action--close" aria-label="Close Menu"><span class="icon icon--cross"></span></button>
+		<button id="menu2--open" class="action action--open action--right" aria-label="Open Menu"><span class="icon icon--menu"></span></button>
+		<nav id="menu2" class="menu menu--right">
+			<button id="menu2--close" class="action action--close action--left" aria-label="Close Menu"><span class="icon icon--cross"></span></button>
 			<div class="menu__wrap">
 				<ul data-menu="profile" class="menu__level" tabindex="-1" role="menu" aria-label="Profile Menu">
 					<li class="menu__item" role="menuitem"><a class="menu__link" data-submenu="submenu-1" aria-owns="submenu-1" href="#">Vegetables</a></li>
 					<li class="menu__item" role="menuitem"><a class="menu__link" data-submenu="submenu-2" aria-owns="submenu-2" href="#">Fruits</a></li>
 					<li class="menu__item" role="menuitem"><a class="menu__link" data-submenu="submenu-3" aria-owns="submenu-3" href="#">Grains</a></li>
 					<li class="menu__item" role="menuitem"><a class="menu__link" data-submenu="submenu-4" aria-owns="submenu-4" href="#">Mylk &amp; Drinks</a></li>
+				</ul>
+				<!-- Submenu 4-1 -->
+				<ul data-menu="submenu-4-1" id="submenu-4-1" class="menu__level" tabindex="-1" role="menu" aria-label="Selection">
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Nut Mylk Packs</a></li>
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Amino Acid Heaven</a></li>
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Allergy Free</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -87,39 +154,63 @@
 	<script src="js/main.js"></script>
 	<script>
 	(function() {
-		var menuEl_1 = document.getElementById('menu1'),
-			menuEl_2 = document.getElementById('menu2'),
-			menuEl_1 = new DSMenu(menuEl_1, {
+
+		/* Standalone function - copy/paste <nav>'s to include in this process */
+
+		// the menus (<nav>´s)
+		var menus = [].slice.call(document.querySelectorAll('.menu'));
+
+		menus.forEach(function(menuEl) {
+			var menu = new DSMenu(menuEl, {
 				// breadcrumbsCtrl : true, // show breadcrumbs
 				// initialBreadcrumb : 'all', // initial breadcrumb text
 				backCtrl : false, // show back button
 				// itemsDelayInterval : 60, // delay between each menu item sliding animation
-				onItemClick: loadDummyData // callback: item that doesn´t have a submenu gets clicked - onItemClick([event], [inner HTML of the clicked item])
-			}),
-			menuEl_2 = new DSMenu(menuEl_2, {
-				// breadcrumbsCtrl : true, // show breadcrumbs
-				// initialBreadcrumb : 'all', // initial breadcrumb text
-				backCtrl : false, // show back button
-				// itemsDelayInterval : 60, // delay between each menu item sliding animation
-				onItemClick: loadDummyData // callback: item that doesn´t have a submenu gets clicked - onItemClick([event], [inner HTML of the clicked item])
+				onItemClick: loadDummyData, // callback: item that doesn´t have a submenu gets clicked - onItemClick([event], [inner HTML of the clicked item])
+				//autohide: true,
+				//animate: true
 			});
+		});
 
-		// mobile menu toggle
-		var openMenuCtrl = document.querySelector('.action--open'),
-			closeMenuCtrl = document.querySelector('.action--close');
 
-		openMenuCtrl.addEventListener('click', openMenu);
-		closeMenuCtrl.addEventListener('click', closeMenu);
+		/* Update on a project by project basis */
 
-		function openMenu() {
-			classie.add(menuEl, 'menu--open');
-			closeMenuCtrl.focus();
+		// mobile menu toggles
+		// menu1
+		var openMenuCtrl1 = document.querySelector('#menu1--open'),
+			 closeMenuCtrl1 = document.querySelector('#menu1--close');
+
+		openMenuCtrl1.addEventListener('click', openMenu1);
+		closeMenuCtrl1.addEventListener('click', closeMenu1);
+
+		function openMenu1() {
+			classie.add(menus[0], 'menu--open');
+			closeMenuCtrl1.focus();
 		}
 
-		function closeMenu() {
-			classie.remove(menuEl, 'menu--open');
-			openMenuCtrl.focus();
+		function closeMenu1() {
+			classie.remove(menus[0], 'menu--open');
+			openMenuCtrl1.focus();
 		}
+
+		// menu2
+		var openMenuCtrl2 = document.querySelector('#menu2--open'),
+			 closeMenuCtrl2 = document.querySelector('#menu2--close');
+
+		openMenuCtrl2.addEventListener('click', openMenu2);
+		closeMenuCtrl2.addEventListener('click', closeMenu2);
+
+		function openMenu2() {
+			classie.add(menus[1], 'menu--open');
+			closeMenuCtrl2.focus();
+		}
+
+		function closeMenu2() {
+			classie.remove(menus[1], 'menu--open');
+			openMenuCtrl2.focus();
+		}
+
+		// menu2
 
 		// simulate grid content loading
 		var gridWrapper = document.querySelector('.content');
