@@ -36,11 +36,6 @@
 				</span>
 				<h1 class="bp-header__title">Dual-Side Menu</h1>
 			</div>
-			<!--<div class="bp-header__sub">
-				<div class="bp-login">
-					<a class="icon icon--ellipsis"></a>
-				</div>
-			</div>-->
 		</header>
 		<!-- Menu Overlay -->
 		<div class="menu--overlay"></div>
@@ -123,10 +118,10 @@
 			<button id="menu2--close" class="action action--close action--right" aria-label="Close Menu"><span class="icon icon--cross"></span></button>
 			<div class="menu__wrap">
 				<ul data-menu="profile" class="menu__level" tabindex="-1" role="menu" aria-label="Profile Menu">
-					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Vegetables</a></li>
-					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Fruits</a></li>
-					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Grains</a></li>
-					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Mylk &amp; Drinks</a></li>
+					<li class="menu__item" role="menuitem"><a class="menu__login" >Login</a></li>
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#"><i class="bp-icon bp-icon--about"></i>Support</a></li>
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#"><i class="bp-icon bp-icon--gear"></i>Account Settings</a></li>
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#"><i class="bp-icon bp-icon--user-plus"></i>Create Account</a></li>
 				</ul>
 			</div>
 		</nav>
@@ -151,78 +146,95 @@
 	<script>
 	(function() {
 
-		/* General variables */
-		var body = document.body;
-
-
 		/* Standalone function - copy/paste <nav>'s to include in this process */
 
 		// the menus (<nav>´s)
 		var menus = [].slice.call(document.querySelectorAll('.menu'));
 
-		menus.forEach(function(menuEl) {
-			var menu = new DSMenu(menuEl, {
-				// breadcrumbsCtrl : true, // show breadcrumbs
-				// initialBreadcrumb : 'all', // initial breadcrumb text
-				backCtrl : false, // show back button
-				// itemsDelayInterval : 60, // delay between each menu item sliding animation
-				onItemClick: loadDummyData, // callback: item that doesn´t have a submenu gets clicked - onItemClick([event], [inner HTML of the clicked item])
-				//autohide: true,
-				//animate: true
-			});
+		var menu1 = new DSMenu(menus[0], {
+			breadcrumbsCtrl : true, // show breadcrumbs
+			initialBreadcrumb : 'all', // initial breadcrumb text
+			backCtrl : true, // show back button
+			itemsDelayInterval : 60, // delay between each menu item sliding animation
+			onItemClick: LoadDummyData, // callback: item that doesn´t have a submenu gets clicked - onItemClick([event], [inner HTML of the clicked item])
+		});
+
+		var menu2 = new DSMenu(menus[1], {
+			// breadcrumbsCtrl : true, // show breadcrumbs
+			// initialBreadcrumb : 'all', // initial breadcrumb text
+			backCtrl : false, // show back button
+			// itemsDelayInterval : 60, // delay between each menu item sliding animation
+			//onItemClick: LoadDummyData, // callback: item that doesn´t have a submenu gets clicked - onItemClick([event], [inner HTML of the clicked item])
 		});
 
 
-		/* Update on a project by project basis */
+		/*===========================================
+		  Update below on a project by project basis 
+		============================================*/
 
-		// mobile menu toggles
+		/* Mobile menu toggles */
+		// variables
+		var body = document.body;
+		var bodyContent = document.getElementsByClassName('content'); 
+		var menuOverlay = document.getElementsByClassName('menu--overlay');
+
+		bodyContent[0].addEventListener('click', AutoCloseMenus);
+
+		function AutoCloseMenus() {
+			if (classie.hasClass(menus[0], 'menu--open') || 
+				classie.hasClass(menus[1], 'menu--open')) {
+				CloseMenu1();
+				CloseMenu2();
+			}
+		}
+		
 		// menu1
 		var openMenuCtrl1 = document.querySelector('#menu1--open'),
-			 closeMenuCtrl1 = document.querySelector('#menu1--close');
+			closeMenuCtrl1 = document.querySelector('#menu1--close');
 
-		openMenuCtrl1.addEventListener('click', openMenu1);
-		closeMenuCtrl1.addEventListener('click', closeMenu1);
+		openMenuCtrl1.addEventListener('click', OpenMenu1);
+		closeMenuCtrl1.addEventListener('click', CloseMenu1);
 
-		function openMenu1() {
-			classie.add(body, 'overlay');
+		function OpenMenu1() {
+			classie.add(menuOverlay[0], 'show');
 			classie.remove(menus[1], 'menu--open');
 			classie.add(menus[0], 'menu--open');
 			closeMenuCtrl1.focus();
 		}
 
-		function closeMenu1() {
+		function CloseMenu1() {
+			classie.remove(menuOverlay[0], 'show');
 			classie.remove(menus[0], 'menu--open');
 			openMenuCtrl1.focus();
 		}
 
 		// menu2
 		var openMenuCtrl2 = document.querySelector('#menu2--open'),
-			 closeMenuCtrl2 = document.querySelector('#menu2--close');
+			closeMenuCtrl2 = document.querySelector('#menu2--close');
 
-		openMenuCtrl2.addEventListener('click', openMenu2);
-		closeMenuCtrl2.addEventListener('click', closeMenu2);
+		openMenuCtrl2.addEventListener('click', OpenMenu2);
+		closeMenuCtrl2.addEventListener('click', CloseMenu2);
 
-		function openMenu2() {
-			classie.add(body, 'overlay');
+		function OpenMenu2() {
+			classie.add(menuOverlay[0], 'show');
 			classie.remove(menus[0], 'menu--open');
 			classie.add(menus[1], 'menu--open');
 			closeMenuCtrl2.focus();
 		}
 
-		function closeMenu2() {
+		function CloseMenu2() {
+			classie.remove(menuOverlay[0], 'show');
 			classie.remove(menus[1], 'menu--open');
 			openMenuCtrl2.focus();
 		}
 
-		// menu2
-
 		// simulate grid content loading
 		var gridWrapper = document.querySelector('.content');
 
-		function loadDummyData(ev, itemName) {
+		function LoadDummyData(ev, itemName) {
 			ev.preventDefault();
 
-			closeMenu1();
+			CloseMenu1();
 			gridWrapper.innerHTML = '';
 			classie.add(gridWrapper, 'content--loading');
 			setTimeout(function() {
