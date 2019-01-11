@@ -35,6 +35,7 @@
 
 body {
 	font-family: 'Lato', 'Segoe UI', Helvetica, Arial, sans-serif;
+	height: 100vh;
 	overflow: hidden;
 	margin: 0;
 	color: #dedede;
@@ -70,8 +71,8 @@ a:hover {
 .bp-header__main {
 	height: 100px;
 	margin: 0 auto 0 0;
-    padding: 1.5em 2em 0;
-    text-align: left;
+  padding: 1.5em 2em 0;
+  text-align: left;
 }
 
 .bp-header__title {
@@ -92,7 +93,7 @@ a:hover {
 	text-indent: 3px;
 	letter-spacing: 3px;
 	text-transform: uppercase;
-	color: #5c5edc;
+	color: #737fe6;
 }
 
 .bp-tooltip:after {
@@ -106,20 +107,20 @@ a:hover {
 
 .bp-tooltip:hover:before {
 	content: attr(data-content);
-    font-size: 110%;
-    font-weight: 700;
-    line-height: 1.2;
-    position: absolute;
-    top: 1.5em;
-    left: 0;
-    width: 40vw;
-    padding: 0.8em 1em;
-    text-align: left;
-    text-indent: 0;
-    letter-spacing: 0;
-    text-transform: none;
-    color: #fff;
-    background: #5c5edc;
+  font-size: 110%;
+  font-weight: 700;
+  line-height: 1.2;
+  position: absolute;
+  top: 1.5em;
+  left: 0;
+  width: 40vw;
+  padding: 0.8em 1em;
+  text-align: left;
+  text-indent: 0;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #fff;
+  background: #5c5edc;
 }
 
 .bp-tooltip:hover .bp-tooltip__arrow {
@@ -129,28 +130,28 @@ a:hover {
 .bp-tooltip:hover .bp-tooltip__arrow:before {
 	content: " ";
 	top: 0px;
-    left: -5px;
-    height: 0;
-    width: 0;
-    position: absolute;
-    pointer-events: none;
-    border: solid transparent;
-    border-bottom-color: #5c5edc;
-    border-width: 10px;
-    margin-left: -3px;
+  left: -5px;
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border: solid transparent;
+  border-bottom-color: #5c5edc;
+  border-width: 10px;
+  margin-left: -3px;
 }
 
 .bp-header__sub {
 	height: 100px;
 	margin: 0 0 0 auto;
-    padding: 1.5em 2em;
+  padding: 1.5em 2em;
 }
 .bp-login {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #dedede;
-    font-size: 1.35em;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #dedede;
+  font-size: 1.35em;
 }
 
 
@@ -158,15 +159,16 @@ a:hover {
 .bp-footer {
 	display: -webkit-flex;
 	display: flex;
-    background: #c1c1c1;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+  background: #c1c1c1;
+  position: fixed;
+  bottom: 0;
+  height: 90px;
+  width: 100%;
 }
 
 .bp-nav {
-    margin: 1.5em 0 1.5em auto;
-    text-align: right;
+  margin: 1em 1.5em 1.5em auto;
+  text-align: right;
 }
 
 .bp-nav__item {
@@ -269,8 +271,10 @@ a:hover {
 }
 
 .content {
-	/*position: relative;*/
-	min-height: 300px;
+	position: relative;
+	margin: 0 250px;
+  min-height: calc(100% - 190px);
+  overflow-y: auto;
 }
 
 .content--loading {
@@ -302,9 +306,13 @@ a:hover {
 	font-size: 1.1em;
 	font-weight: bold;
 	padding: 20vh 1em 0;
+	margin: 0;
 	text-align: center;
 	color: #47484c;
 }
+
+
+/* Advertisements */
 
 body #cdawrap {
 	top: auto;
@@ -324,11 +332,18 @@ body #cdawrap a:hover.carbon-poweredby {
 	color: #fff;
 }
 
+
+/* Media */
+
 @media screen and (max-width: 40em) {
 	.bp-header {
-		padding-top: 3em;
+		padding-top: 0;
 	}
-	.bp-header__main,
+	.bp-header__main {
+		padding: 1.5em 4em 0;
+		width: 100%;
+		text-align: center;
+	}
 	.bp-nav {
 		width: 100%;
 		text-align: center;
@@ -345,7 +360,7 @@ body #cdawrap a:hover.carbon-poweredby {
 	}
 	body,
 	.container {
-		height: auto;
+		/*height: auto;*/
 		overflow: auto;
 	}
 }

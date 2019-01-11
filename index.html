@@ -36,16 +36,18 @@
 				</span>
 				<h1 class="bp-header__title">Dual-Side Menu</h1>
 			</div>
-			<div class="bp-header__sub">
+			<!--<div class="bp-header__sub">
 				<div class="bp-login">
 					<a class="icon icon--ellipsis"></a>
 				</div>
-			</div>
+			</div>-->
 		</header>
+		<!-- Menu Overlay -->
+		<div class="menu--overlay"></div>
 		<!-- Menu 1 -->
 		<button id="menu1--open" class="action action--open action--left" aria-label="Open Menu"><span class="icon icon--menu"></span></button>
 		<nav id="menu1" class="menu menu--left">
-			<button id="menu1--close" class="action action--close action--right" aria-label="Close Menu"><span class="icon icon--cross"></span></button>
+			<button id="menu1--close" class="action action--close action--left" aria-label="Close Menu"><span class="icon icon--cross"></span></button>
 			<div class="menu__wrap">
 				<ul data-menu="main" class="menu__level" tabindex="-1" role="menu" aria-label="Main Menu">
 					<li class="menu__item" role="menuitem"><a class="menu__link" data-submenu="submenu-1" aria-owns="submenu-1" href="#">Vegetables</a></li>
@@ -118,24 +120,18 @@
 		<!-- Menu 2 -->
 		<button id="menu2--open" class="action action--open action--right" aria-label="Open Menu"><span class="icon icon--menu"></span></button>
 		<nav id="menu2" class="menu menu--right">
-			<button id="menu2--close" class="action action--close action--left" aria-label="Close Menu"><span class="icon icon--cross"></span></button>
+			<button id="menu2--close" class="action action--close action--right" aria-label="Close Menu"><span class="icon icon--cross"></span></button>
 			<div class="menu__wrap">
 				<ul data-menu="profile" class="menu__level" tabindex="-1" role="menu" aria-label="Profile Menu">
-					<li class="menu__item" role="menuitem"><a class="menu__link" data-submenu="submenu-1" aria-owns="submenu-1" href="#">Vegetables</a></li>
-					<li class="menu__item" role="menuitem"><a class="menu__link" data-submenu="submenu-2" aria-owns="submenu-2" href="#">Fruits</a></li>
-					<li class="menu__item" role="menuitem"><a class="menu__link" data-submenu="submenu-3" aria-owns="submenu-3" href="#">Grains</a></li>
-					<li class="menu__item" role="menuitem"><a class="menu__link" data-submenu="submenu-4" aria-owns="submenu-4" href="#">Mylk &amp; Drinks</a></li>
-				</ul>
-				<!-- Submenu 4-1 -->
-				<ul data-menu="submenu-4-1" id="submenu-4-1" class="menu__level" tabindex="-1" role="menu" aria-label="Selection">
-					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Nut Mylk Packs</a></li>
-					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Amino Acid Heaven</a></li>
-					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Allergy Free</a></li>
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Vegetables</a></li>
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Fruits</a></li>
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Grains</a></li>
+					<li class="menu__item" role="menuitem"><a class="menu__link" href="#">Mylk &amp; Drinks</a></li>
 				</ul>
 			</div>
 		</nav>
 		<div class="content">
-			<p class="info">Please choose a category</p>
+			<p class="info">Please choose a side-menu item</p>
 			<!-- Ajax loaded content here -->
 		</div>
 
@@ -154,6 +150,10 @@
 	<script src="js/main.js"></script>
 	<script>
 	(function() {
+
+		/* General variables */
+		var body = document.body;
+
 
 		/* Standalone function - copy/paste <nav>'s to include in this process */
 
@@ -184,6 +184,8 @@
 		closeMenuCtrl1.addEventListener('click', closeMenu1);
 
 		function openMenu1() {
+			classie.add(body, 'overlay');
+			classie.remove(menus[1], 'menu--open');
 			classie.add(menus[0], 'menu--open');
 			closeMenuCtrl1.focus();
 		}
@@ -201,6 +203,8 @@
 		closeMenuCtrl2.addEventListener('click', closeMenu2);
 
 		function openMenu2() {
+			classie.add(body, 'overlay');
+			classie.remove(menus[0], 'menu--open');
 			classie.add(menus[1], 'menu--open');
 			closeMenuCtrl2.focus();
 		}
@@ -218,7 +222,7 @@
 		function loadDummyData(ev, itemName) {
 			ev.preventDefault();
 
-			closeMenu();
+			closeMenu1();
 			gridWrapper.innerHTML = '';
 			classie.add(gridWrapper, 'content--loading');
 			setTimeout(function() {
