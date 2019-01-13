@@ -1,11 +1,18 @@
 Blueprint: Dual-Side Menu
 =========
 
-A simple side menu that can be displayed on either the left or right of the webpage, or both. It has delayed pullover, item animation and customisable hover effects and highlights.
+A simple side menu that can be displayed on either the left or right of the webpage, or both. It has basic item animation and hover effects. Responsive to mobile and can seamlessly change between dual side menus.
 
-<!--[Article on Codrops](###)-->
+<!--[Article on Lyonic](###)-->
 
 <!--[Demo](###)-->
+
+Future
+========
+
+- Delayed pullover
+- Customisable item animation and hover effects
+- Expanded range of side menu styles.
 
 [Organic Food Icons](http://tympanus.net/codrops/2015/03/19/freebie-organic-food-icon-set/) by Wojciech Zasina.
 
