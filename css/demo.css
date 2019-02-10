@@ -65,7 +65,7 @@ a:hover {
 .bp-header {
 	display: -webkit-flex;
 	display: flex;
-    background: #282931;
+  background: #282931;
 }
 
 .bp-header__main {
