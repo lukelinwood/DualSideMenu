@@ -147,6 +147,14 @@
 			self.options.backCtrl = false;
 		}
 
+		// check if breadcrumbs and back button are disabled
+		if (!self.options.breadcrumbsCtrl && !self.options.backCtrl) {
+			// Only after the first menu
+			var menuWrap = this.menus[0].parentElement;
+			// remove menu__wrap top spacing
+			classie.add(menuWrap, 'no-breadcrumb');
+		}
+
 		// create breadcrumbs if length of menu array is 2 or greater
 		if( self.options.breadcrumbsCtrl ) {
 			this.breadcrumbsCtrl = document.createElement('nav');
